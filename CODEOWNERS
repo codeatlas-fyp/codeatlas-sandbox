@@ -1,0 +1,18 @@
+# CodeAtlas Sandbox CODEOWNERS
+#
+# GitHub semantics: LAST matching pattern wins.
+# CodeAtlas reads this file at the base commit of the PR under evaluation.
+#
+# IMPORTANT: these owners are the teammates' real GitHub handles.
+# GitHub logins before pushing. Yusra's handle is correct.
+#
+# Scenario design (keep this layout — tests depend on it):
+#   payments/ is owned by Areej → SBX-4 (late fee) and SBX-5 (owner-approve-then-push)
+#   books.py  is owned by Saleha → SBX-6 PASS scenario
+#   catch-all is Yusra
+
+*                    @YusraM-100
+/books.py            @salehamuhammad
+/loans.py            @YusraM-100
+/payments/           @areej8
+/payments/fees.py    @areej8
