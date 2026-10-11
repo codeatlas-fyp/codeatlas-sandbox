@@ -26,3 +26,20 @@ def calculate_late_fee(days_overdue: int) -> Decimal:
 def is_fee_waivable(days_overdue: int, is_first_offence: bool) -> bool:
     """Fees under one week are waivable for first-time offenders."""
     return is_first_offence and days_overdue <= 7
+
+
+def format_receipt(member_name: str, book_title: str, loan_days: int) -> str:
+    """Pretty-print a loan receipt for display at the counter.
+
+    SBX-62: librarian can print a receipt for a loan transaction.
+    """
+    header = "=" * 40
+    return (
+        f"{header}\n"
+        f"  LIBRARY LOAN RECEIPT\n"
+        f"{header}\n"
+        f"  Member: {member_name}\n"
+        f"  Book:   {book_title}\n"
+        f"  Loan:   {loan_days} days\n"
+        f"{header}"
+    )
