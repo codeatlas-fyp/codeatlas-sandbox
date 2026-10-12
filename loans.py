@@ -65,5 +65,5 @@ class LoanLedger:
 
 
 def export_members_csv(member_ids: list[str]) -> str:
-    """Dump member ids as one CSV line for the nightly backup job."""
+    """Dump member ids as one sorted CSV line for the nightly backup job."""
     return ",".join(sorted(member_ids))
