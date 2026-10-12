@@ -42,3 +42,24 @@ class Catalog:
 
     def count(self) -> int:
         return len(self.books)
+
+
+@dataclass
+class Member:
+    """Library member with an expiry date (sandbox stub)."""
+
+    member_id: str
+    name: str
+    expires_days: int = 365
+
+
+def renew_membership(member: Member, additional_days: int) -> Member:
+    """Extend a member's expiry by additional_days.
+
+    SBX-60: librarian can renew a membership before or after expiry.
+    """
+    return Member(
+        member_id=member.member_id,
+        name=member.name,
+        expires_days=member.expires_days + additional_days,
+    )
