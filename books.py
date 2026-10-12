@@ -36,6 +36,13 @@ class Catalog:
     def find(self, isbn: str) -> Book | None:
         return self.books.get(isbn)
 
+    def find_or_raise(self, isbn: str) -> Book:
+        """Look up a book by ISBN, raising KeyError if not in the catalog."""
+        book = self.books.get(isbn)
+        if book is None:
+            raise KeyError(f"no book with ISBN: {isbn}")
+        return book
+
     def search_by_author(self, author: str) -> list[Book]:
         needle = author.lower()
         return [b for b in self.books.values() if needle in b.author.lower()]
