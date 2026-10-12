@@ -62,3 +62,8 @@ class LoanLedger:
             if loan.isbn == isbn and loan.returned_on is None:
                 return loan
         return None
+
+
+def export_members_csv(member_ids: list[str]) -> str:
+    """Dump member ids as one sorted CSV line for the nightly backup job."""
+    return ",".join(sorted(member_ids))
