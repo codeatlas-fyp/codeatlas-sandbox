@@ -43,6 +43,13 @@ class Catalog:
             raise KeyError(f"no book with ISBN: {isbn}")
         return book
 
+    def lookup_isbn(self, isbn: str) -> Book | None:
+        """Look up a book by its ISBN, returning None when it is not found.
+
+        SBX-63: returns the book when present and an empty result on a miss.
+        """
+        return self.books.get(isbn.replace("-", "").strip())
+
     def search_by_author(self, author: str) -> list[Book]:
         needle = author.lower()
         return [b for b in self.books.values() if needle in b.author.lower()]
