@@ -44,7 +44,7 @@ class Catalog:
         return book
 
     def lookup_isbn(self, isbn: str) -> Book | None:
-        """Look up a book by ISBN, returning None when it is not found.
+        """Look up a book by its ISBN, returning None when it is not found.
 
         SBX-63: returns the book when present and an empty result on a miss.
         """
